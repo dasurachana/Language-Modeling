@@ -4,6 +4,7 @@ Name:
 Roll No:
 """
 
+from os import linesep
 import language_tests as test
 
 project = "Language" # don't edit this
@@ -17,8 +18,16 @@ Parameters: str
 Returns: 2D list of strs
 '''
 def loadBook(filename):
-    return
-
+    f=open(filename)
+    line=f.read().splitlines()
+    #print(line)
+    list1=[]
+    for i in line:
+        if len(i)>0:
+            x=i.split()
+            list1.append(x)
+    #print(list1)ss
+    return list1
 
 '''
 getCorpusLength(corpus)
@@ -285,11 +294,12 @@ def scatterPlot(xs, ys, labels, title):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
+    test.testLoadBook()
+"""print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
     test.week1Tests()
     print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
     test.runWeek1()
-
+"""
     ## Uncomment these for Week 2 ##
 """
     print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")

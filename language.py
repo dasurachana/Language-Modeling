@@ -65,8 +65,15 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to ints
 '''
 def countUnigrams(corpus):
-    return
-
+    unigram_Dict={}
+    for each in corpus:
+        for i in each:
+            if i not in unigram_Dict:
+                unigram_Dict[i]=1
+            else:
+                unigram_Dict[i]+=1
+    #print(unigram_Dict)
+    return unigram_Dict
 
 '''
 getStartWords(corpus)
@@ -306,6 +313,7 @@ if __name__ == "__main__":
     test.testLoadBook()
     test.testGetCorpusLength()
     test.testBuildVocabulary()
+    test.testCountUnigrams()
 """print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
     test.week1Tests()
     print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")

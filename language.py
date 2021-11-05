@@ -49,8 +49,14 @@ Parameters: 2D list of strs
 Returns: list of strs
 '''
 def buildVocabulary(corpus):
-    return
-
+    result_List=[]
+    for each in corpus:
+        for i in each:
+            #print(each)
+            if i not in result_List:
+                result_List.append(i)
+                #print(result_List)
+    return result_List
 
 '''
 countUnigrams(corpus)
@@ -299,6 +305,7 @@ def scatterPlot(xs, ys, labels, title):
 if __name__ == "__main__":
     test.testLoadBook()
     test.testGetCorpusLength()
+    test.testBuildVocabulary()
 """print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
     test.week1Tests()
     print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")

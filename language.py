@@ -170,7 +170,20 @@ Parameters: dict mapping strs to ints ; dict mapping strs to (dicts mapping strs
 Returns: dict mapping strs to (dicts mapping strs to (lists of values))
 '''
 def buildBigramProbs(unigramCounts, bigramCounts):
-    return
+    new_Dict={}
+    for prevWord in bigramCounts:
+        #print(bigramCounts[prevWord])
+        words_List=[]
+        probs_List=[]
+        for keys in bigramCounts[prevWord]:
+            words_List.append(keys)
+            probs_List.append(bigramCounts[prevWord][keys]/unigramCounts[keys])
+            temp={}
+            temp["words"]=words_List
+            temp["probs"]=probs_List
+            new_Dict[prevWord]=temp
+
+    return new_Dict
 
 
 '''
@@ -346,28 +359,28 @@ def scatterPlot(xs, ys, labels, title):
 
 # This code runs the test cases to check your work
 if __name__ == "__main__":
-    test.testLoadBook()
-    test.testGetCorpusLength()
-    test.testBuildVocabulary()
-    test.testCountUnigrams()
-    test.testGetStartWords()
-    test.testCountStartWords()
-    test.testCountBigrams()
-    test.testBuildUniformProbs()
-    test.testBuildUnigramProbs()
-"""print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
+    # test.testLoadBook()
+    # test.testGetCorpusLength()
+    # test.testBuildVocabulary()
+    # test.testCountUnigrams()
+    # test.testGetStartWords()
+    # test.testCountStartWords()
+    # test.testCountBigrams()
+    # test.testBuildUniformProbs()
+    # test.testBuildUnigramProbs()
+    # test.testBuildBigramProbs()
+    print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
     test.week1Tests()
     print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")
     test.runWeek1()
-"""
+
     ## Uncomment these for Week 2 ##
     
-"""
+
     print("\n" + "#"*15 + " WEEK 2 TESTS " +  "#" * 16 + "\n")
     test.week2Tests()
     print("\n" + "#"*15 + " WEEK 2 OUTPUT " + "#" * 15 + "\n")
     test.runWeek2()
-"""
 
     ## Uncomment these for Week 3 ##
 """

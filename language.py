@@ -115,8 +115,19 @@ Parameters: 2D list of strs
 Returns: dict mapping strs to (dicts mapping strs to ints)
 '''
 def countBigrams(corpus):
-    return
-
+    bigram_Counts={}
+    for sentence in corpus:
+        #range(len(each)-1)
+        for i in range(len(sentence)-1):
+            #print(i)
+            if sentence[i] not in bigram_Counts.keys() :
+                bigram_Counts[sentence[i]]={}
+            if sentence[i+1] not in bigram_Counts[sentence[i]]:
+                bigram_Counts[sentence[i]][sentence[i+1]]=1
+            else:
+                bigram_Counts[sentence[i]][sentence[i+1]]+=1
+        
+    return bigram_Counts
 
 ### WEEK 2 ###
 
@@ -329,6 +340,7 @@ if __name__ == "__main__":
     test.testCountUnigrams()
     test.testGetStartWords()
     test.testCountStartWords()
+    test.testCountBigrams()
 """print("\n" + "#"*15 + " WEEK 1 TESTS " +  "#" * 16 + "\n")
     test.week1Tests()
     print("\n" + "#"*15 + " WEEK 1 OUTPUT " + "#" * 15 + "\n")

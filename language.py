@@ -270,7 +270,7 @@ def graphTop50Words(corpus):
     totalCount=getCorpusLength(corpus)
     probs=buildUnigramProbs(words, unigramCounts, totalCount)
     highest_Prob_Dict=getTopWords(50, words, probs, ignore)
-    draw_plot=barPlot(highest_Prob_Dict,"Top 50 Words in  corpus")
+    barPlot(highest_Prob_Dict,"Top 50 Words in  corpus")
     return
 
 
@@ -281,6 +281,12 @@ Parameters: 2D list of strs
 Returns: None
 '''
 def graphTopStartWords(corpus):
+    words=getStartWords(corpus)
+    start_Word_Counts=countStartWords(corpus)
+    totalCount=getCorpusLength(corpus)
+    probs=buildUnigramProbs(words,start_Word_Counts,totalCount)
+    dict=getTopWords(50,words,probs,ignore)
+    barPlot(dict,"Graph the Top Starting Words")
     return
 
 

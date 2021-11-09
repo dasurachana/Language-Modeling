@@ -6,7 +6,7 @@ Roll No:
 
 from os import linesep
 import language_tests as test
-
+import random
 project = "Language" # don't edit this
 
 ### WEEK 1 ###
@@ -217,6 +217,28 @@ Returns: str
 '''
 from random import choices
 def generateTextFromUnigrams(count, words, probs):
+    word_Str=" "
+    choice=choices(words, weights=probs, k=count)
+    #print(choice)
+    for each in choice:
+        word_Str+=" "+each
+    return word_Str
+    
+
+    
+#     lst=[]
+#    var=[]SSS
+#    str=" "
+#    for i in range(0,count):
+#        value=(random.choices(words, weights=probs))
+#        var.append(value[0])
+#    for each in var:
+#        lst.append(each)
+#    for i in lst:
+#        str+=" "+i
+#    return str
+
+    
     return
 
 

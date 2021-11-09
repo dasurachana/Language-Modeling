@@ -7,6 +7,8 @@ Roll No:
 from os import linesep
 import language_tests as test
 import random
+import numpy
+import matplotlib
 project = "Language" # don't edit this
 
 ### WEEK 1 ###

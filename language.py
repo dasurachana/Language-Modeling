@@ -359,7 +359,7 @@ Returns: None
 '''
 def graphTopWordsSideBySide(corpus1, name1, corpus2, name2, numWords, title):
     data=setupChartData(corpus1,corpus2,numWords)
-    sideBySideBarPlots(data["topWords"],data["corpus1Probs"],data["corpus1Probs"],name1,name2,title)
+    sideBySideBarPlots(data["topWords"],data["corpus1Probs"],data["corpus2Probs"],name1,name2,title)
 
     return
 

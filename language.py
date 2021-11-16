@@ -223,23 +223,6 @@ def generateTextFromUnigrams(count, words, probs):
     for each in choice:
         word_Str+=" "+each
     return word_Str
-    
-
-    
-#     lst=[]
-#    var=[]SSS
-#    str=" "
-#    for i in range(0,count):
-#        value=(random.choices(words, weights=probs))
-#        var.append(value[0])
-#    for each in var:
-#        lst.append(each)
-#    for i in lst:
-#        str+=" "+i
-#    return str
-
-    
-    return
 
 
 '''
@@ -249,7 +232,21 @@ Parameters: int ; list of strs ; list of floats ; dict mapping strs to (dicts ma
 Returns: str
 '''
 def generateTextFromBigrams(count, startWords, startWordProbs, bigramProbs):
-    return
+    bigram_Str=" "
+    value=0
+    last_Word=""
+    while value!=count:
+        if bigram_Str==" " or last_Word==".":
+            for i in choices(startWords,weights=startWordProbs):
+                last_Word=i
+                bigram_Str+=" "+i
+                value+=1
+        else:
+            for j in choices(bigramProbs[last_Word]["words"], weights=bigramProbs[last_Word]["probs"]):
+                last_Word=j
+                bigram_Str+=" "+j
+                value+=1
+    return bigram_Str
 
 
 ### WEEK 3 ###

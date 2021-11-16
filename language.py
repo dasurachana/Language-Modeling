@@ -177,7 +177,7 @@ def buildBigramProbs(unigramCounts, bigramCounts):
         probs_List=[]
         for keys in bigramCounts[prevWord]:
             words_List.append(keys)
-            probs_List.append(bigramCounts[prevWord][keys]/unigramCounts[keys])
+            probs_List.append(bigramCounts[prevWord][keys]/unigramCounts[prevWord])
             temp={}
             temp["words"]=words_List
             temp["probs"]=probs_List
@@ -193,7 +193,20 @@ Parameters: int ; list of strs ; list of floats ; list of strs
 Returns: dict mapping strs to floats
 '''
 def getTopWords(count, words, probs, ignoreList):
-    return
+    highest_Prob_Dict={}
+    temp_Dict={}
+    for each in range(len(words)):
+        temp_Dict[words[each]]=probs[each]
+    #print(temp_Dict)
+    while len(highest_Prob_Dict)!=count:
+        highest_Count=0
+        for i in temp_Dict:
+            if temp_Dict[i]>highest_Count and i not in ignoreList and i not in highest_Prob_Dict:
+                new_Variable=i
+                highest_Count=temp_Dict[i]
+        highest_Prob_Dict[new_Variable]=highest_Count
+
+    return highest_Prob_Dict
 
 
 '''
